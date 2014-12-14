@@ -1,0 +1,15 @@
+language: python
+python:
+  - "2.6"
+  - "2.7"
+  - "3.2"
+  - "3.3"
+  - "3.4"
+
+install:
+  - apt-get install cython
+  - apt-get install python-ipy
+  - wget https://streamhtmlparser.googlecode.com/files/streamhtmlparser-0.1.tar.gz
+  - tar -zxvf streamhtmlparser-0.1.tar.gz
+  - cd streamhtmlparser-0.1 && ./configure && make && make install
+  - cd src/py-streamhtmlparser && make && make install

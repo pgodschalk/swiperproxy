@@ -19,3 +19,7 @@ install:
   - wget https://streamhtmlparser.googlecode.com/files/streamhtmlparser-0.1.tar.gz
   - tar -zxvf streamhtmlparser-0.1.tar.gz
   - cd streamhtmlparser-0.1 && ./configure && make && sudo make install
+  - cd ..
+
+script:
+  - python Proxy.py

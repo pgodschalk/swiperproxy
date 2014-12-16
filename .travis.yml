@@ -9,6 +9,8 @@ python:
 install:
   - sudo apt-get install cython
   - sudo apt-get install python-ipy
+  - sudo add-apt-repository 'deb http://ftp.nl.debian.org/debian/ wheezy main'
+  - sudo apt-get update
   - sudo apt-get install libjs-modernizr
   - sudo apt-get install libjs-jquery
   - sudo apt-get install libjs-twitter-bootstrap

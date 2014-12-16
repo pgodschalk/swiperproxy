@@ -9,7 +9,9 @@ python:
 install:
   - sudo apt-get install cython
   - sudo apt-get install python-ipy
-  - sudo add-apt-repository 'deb http://ftp.nl.debian.org/debian/ wheezy main'
+  - sudo add-apt-repository 'deb http://ftp.nl.debian.org/debian/ jessie main'
+  - sudo add-apt-repository 'deb http://ftp.nl.debian.org/debian/ jessie-updates main'
+  - sudo add-apt-repository 'deb http://security.debian.org/ jessie/updates main'
   - sudo apt-get update
   - sudo apt-get install libjs-modernizr
   - sudo apt-get install libjs-jquery

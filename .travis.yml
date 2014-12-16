@@ -13,9 +13,9 @@ install:
   - sudo add-apt-repository 'deb http://ftp.nl.debian.org/debian/ jessie-updates main'
   - sudo add-apt-repository 'deb http://security.debian.org/ jessie/updates main'
   - sudo apt-get update
-  - sudo apt-get install libjs-modernizr
-  - sudo apt-get install libjs-jquery
-  - sudo apt-get install libjs-twitter-bootstrap
+  - sudo apt-get install libjs-modernizr --force-yes
+  - sudo apt-get install libjs-jquery --force-yes
+  - sudo apt-get install libjs-twitter-bootstrap --force-yes
   - wget https://streamhtmlparser.googlecode.com/files/streamhtmlparser-0.1.tar.gz
   - tar -zxvf streamhtmlparser-0.1.tar.gz
   - cd streamhtmlparser-0.1 && ./configure && make && sudo make install

@@ -81,11 +81,11 @@ class CSSPage:
         length = len(self.output_buffer)
         for beg in range(0, length, self.BLKSIZE):
             end = beg + self.BLKSIZE
-                if end > length:
-                    if not final:
-                        self.output_buffer = self.output_buffer[beg:]
-                        return
-                    end = length
-                self.writer(self.output_buffer[beg:end])
+            if end > length:
+                if not final:
+                    self.output_buffer = self.output_buffer[beg:]
+                    return
+                end = length
+            self.writer(self.output_buffer[beg:end])
 
         self.output_buffer = ''

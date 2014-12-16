@@ -7,19 +7,43 @@ python:
   - "3.4"
 
 install:
+  # install dependencies
   - sudo apt-get install cython
   - sudo apt-get install python-ipy
-  - sudo add-apt-repository 'deb http://ftp.nl.debian.org/debian/ jessie main'
-  - sudo add-apt-repository 'deb http://ftp.nl.debian.org/debian/ jessie-updates main'
-  - sudo add-apt-repository 'deb http://security.debian.org/ jessie/updates main'
-  - sudo apt-get update
-  - sudo apt-get install libjs-modernizr --force-yes
-  - sudo apt-get install libjs-jquery --force-yes
-  - sudo apt-get install libjs-twitter-bootstrap --force-yes
-  - wget https://streamhtmlparser.googlecode.com/files/streamhtmlparser-0.1.tar.gz
-  - tar -zxvf streamhtmlparser-0.1.tar.gz
-  - cd streamhtmlparser-0.1 && ./configure && make && sudo make install
-  - cd ..
+
+  # install js libraries - not needed at this point
+  #- sudo add-apt-repository 'deb http://ftp.nl.debian.org/debian/ jessie main'
+  #- sudo add-apt-repository 'deb http://ftp.nl.debian.org/debian/ jessie-updates main'
+  #- sudo add-apt-repository 'deb http://security.debian.org/ jessie/updates main'
+  #- sudo apt-get update
+  #- sudo apt-get install libjs-modernizr --force-yes
+  #- sudo apt-get install libjs-jquery --force-yes
+  #- sudo apt-get install libjs-twitter-bootstrap --force-yes
+
+  # build streamhtmlparser and python module
+  - cd streamhtmlparser
+  - ./configure
+  - make
+  - sudo make install
+  - cd src/pystreamhtmlparser
+  - make
+  - sudo make install
+  - cd ../../../
+
+  # put streamhtmlparser in the proper environment
+  - sudo cp /usr/local/lib/python2.7/dist-packages/* /usr/lib/python2.7/dist-packages
+  - sudo ldconfig -v
+
+  # build runtime environment
+  - sudo mkdir /var/log/swiperproxy
+  - sudo addgroup --system swiperproxy
+  - sudo adduser --system swiperproxy --ingroup=swiperproxy --no-create-home
+  - sudo chown -R swiperproxy:swiperproxy swiperproxy
+  - sudo chown swiperproxy:swiperproxy /var/log/swiperproxy
+
+  # set cap to bind to ports < 1024
+  - sudo apt-get install libcap2-bin
+  - setcap 'cap_net_bind_service=+ep' swiperproxy/Proxy.py
 
 script:
-  - python Proxy.py
+  - sudo -u swiperproxy python Proxy.py -c proxy.conf

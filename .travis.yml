@@ -9,7 +9,7 @@ python:
 install:
   # install dependencies
   - sudo pip install cython
-  - sudo apt-get install python-ipy automake-1.9
+  - sudo apt-get install python-ipy automake1.9
 
   # install js libraries - not needed at this point
   #- sudo add-apt-repository 'deb http://ftp.nl.debian.org/debian/ jessie main'

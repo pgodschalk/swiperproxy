@@ -6,7 +6,7 @@ swiperproxy
 SwiperProxy is a very easy to use HTTP and HTTPS web proxy. View the
 live demo at <http://proxy.donttrustrobots.nl>.
 
-![SwiperProxy Screeshot](doc/screenshot.png)
+![SwiperProxy Screenshot](doc/screenshot.png)
 
 License
 -------

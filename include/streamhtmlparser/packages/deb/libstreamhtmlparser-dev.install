@@ -1,0 +1,8 @@
+usr/include/streamhtmlparser/*
+usr/lib/lib*.so
+usr/lib/lib*.a
+usr/lib/lib*.la
+debian/tmp/usr/include/streamhtmlparser/*
+debian/tmp/usr/lib/lib*.so
+debian/tmp/usr/lib/lib*.a
+debian/tmp/usr/lib/lib*.la

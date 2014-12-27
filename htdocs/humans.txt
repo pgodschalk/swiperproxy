@@ -1,0 +1,12 @@
+/* TEAM */
+	Developer: Patrick Godschalk
+	E-mail: argure@donttrustrobots.nl
+	Location: Goes, The Netherlands
+
+/* THANKS */
+
+/* SITE */
+	Last update: 2014-12-25
+	Standards: HTML5, CSS3
+	Components: Bootstrap, JQuery
+	Software: Aptana Studio 3

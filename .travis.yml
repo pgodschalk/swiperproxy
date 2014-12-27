@@ -1,0 +1,32 @@
+language: python
+python:
+  - "2.7"
+
+install:
+  # install dependencies
+  - sudo which python
+  - sudo apt-get install cython python-ipy
+
+  # build streamhtmlparser and python module
+  - cd include/streamhtmlparser
+  - ./configure
+  - sudo make
+  - sudo make install
+  - cd src/py-streamhtmlparser
+  - sudo make
+  - sudo make install
+  - cd ../../../../../
+
+  # put streamhtmlparser in the proper environment
+  - sudo cp -R /usr/local/lib/python2.7/dist-packages/* /usr/lib/python2.7/dist-packages
+  - sudo ldconfig -v
+
+  # build runtime environment
+  - sudo mkdir /var/log/swiperproxy
+  - sudo addgroup --system swiperproxy
+  - sudo adduser --system swiperproxy --ingroup=swiperproxy --no-create-home
+  - sudo chown -R swiperproxy:swiperproxy swiperproxy
+  - sudo chown swiperproxy:swiperproxy /var/log/swiperproxy
+
+script:
+  - sudo start-stop-daemon --start --background --pidfile /var/run/swiperproxy.pid --make-pidfile --user swiperproxy --chuid swiperproxy --startas swiperproxy/Proxy.py -- -c swiperproxy/proxy.conf

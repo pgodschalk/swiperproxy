@@ -1,0 +1,11 @@
+# Path to Proxy.py.
+#DIR=/opt/SwiperProxy/swiperproxy
+
+# Run SwiperProxy as username.
+#DAEMON_USER=swiperproxy
+
+# Run SwiperProxy with the following arguments.
+#DAEMON_USER="-c /etc/swiperproxy/proxy.conf"
+
+# Path to pidfile.
+#PIDFILE=/var/run/swiperproxy.pid

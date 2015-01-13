@@ -135,9 +135,6 @@ class ProxyHandler(BaseHTTPRequestHandler):
     def do_POST(self):
         self.do_GETPOST(True)
 
-    # Handle GET and POST requests: fetch the page, rewrite it and
-    # return it to the client. The 'post' boolean determines if this is
-    # a POST request and if so, the post data is read.
     def do_GETPOST(self, post):
         """
         Handle GET and POST requests: fetch the page, rewrite it and

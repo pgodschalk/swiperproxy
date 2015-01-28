@@ -105,9 +105,6 @@ class Page(HtmlParser):
             else:
                 pass
 
-    # Read and parse tag contents in blocks of the configured
-    # max_page_size. Rewrite them based on the tag type: script or
-    # style.
     def handle_tag(self):
         """
         Read and parse tag contents in blocks of the configured

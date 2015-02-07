@@ -20,7 +20,7 @@ Download
 See <https://swiperproxy.github.io/download.html> for releases and git
 checkout instructions.
 
-Create a clone fo this repository
+Create a clone of this repository
 ---------------------------------
 
 Clone the repo by running:

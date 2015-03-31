@@ -797,6 +797,8 @@ class Config:
         self.hostname = None
         self.http_port = 0
         self.https_port = 0
+        self.http_endpoint = ''
+        self.https_endpoint = ''
         self.rewrites=[]
         self.http_listen_port = 0
         self.https_listen_port = 0
@@ -865,7 +867,9 @@ class Config:
             self.https_listen_port = conf.getint('global', 'https_listen_port')
             self.http_port = conf.getint('global', 'http_port')
             self.https_port = conf.getint('global', 'https_port')
-            self.https_certificate = conf.get('global','https_certificate')
+            self.http_endpoint = conf.get('global', 'http_endpoint')
+            self.https_endpoint = conf.get('global', 'https_endpoint')
+            self.https_certificate = conf.get('global', 'https_certificate')
             self.max_page_size = conf.getint('global', 'max_page_size')
             self.max_post_size = conf.getint('global', 'max_post_size')
             self.upstream_timeout=conf.getint('global', 'upstream_timeout')

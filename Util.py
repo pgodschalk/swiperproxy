@@ -94,12 +94,14 @@ def rewrite_URL(url, config, ssl, remote_host):
         # Add port of proxy.
         if newres[0] == 'http':
             port = config.http_port
+            endpoint = config.http_endpoint
         elif newres[0] == 'https':
             port = config.https_port
+            endpoint = config.https_endpoint
         newres[1] = config.hostname + ":" + str(port)
         if host == '':
             host = remote_host
-        newres[2] = host + newres[2]
+        newres[2] = endpoint + host + newres[2]
         url = urlparse.urlunsplit(newres) 
     except Exception, e: 
         pass

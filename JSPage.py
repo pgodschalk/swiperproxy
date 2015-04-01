@@ -105,10 +105,10 @@ class JSPage(object):
             portstr = ':' + str(port)
 
         if scheme:
-            s = "".join((scheme, self.config.hostname, portstr, '/', endpoint, hostname, s[m.end():]))
+            s = "".join((scheme, self.config.hostname, portstr, endpoint, hostname, s[m.end():]))
         else:
             scheme = "http://"
-            s = "".join((scheme, self.config.hostname, portstr, '/', endpoint, hostname, m.group(4) or '', s[m.end():]))
+            s = "".join((scheme, self.config.hostname, portstr, endpoint, hostname, m.group(4) or '', s[m.end():]))
 
         return s
 

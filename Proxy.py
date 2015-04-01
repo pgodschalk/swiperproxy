@@ -797,8 +797,8 @@ class Config:
         self.hostname = None
         self.http_port = 0
         self.https_port = 0
-        self.http_endpoint = ''
-        self.https_endpoint = ''
+        self.http_endpoint = '/'
+        self.https_endpoint = '/'
         self.rewrites=[]
         self.http_listen_port = 0
         self.https_listen_port = 0

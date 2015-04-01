@@ -92,8 +92,10 @@ class JSPage(object):
 
         if self.ssl:
             port = self.config.https_port
+            endpoint = self.config.https_endpoint
         else:
             port = self.config.http_port
+            endpoint = self.config.http_endpoint
 
         # Not necessary to use standard port numbers. Assume proxy is
         # not doing HTTP on 443 or HTTPS on 80.
@@ -103,11 +105,10 @@ class JSPage(object):
             portstr = ':' + str(port)
 
         if scheme:
-            s = "".join((scheme, hostname, ".", self.config.hostname,
-                         portstr, s[m.end():]))
+            s = "".join((scheme, self.config.hostname, portstr, '/', endpoint, hostname, s[m.end():]))
         else:
-            s = "".join((scheme, hostname, ".", self.config.hostname,
-                         m.group(4) or '', s[m.end():]))
+            scheme = "http://"
+            s = "".join((scheme, self.config.hostname, portstr, '/', endpoint, hostname, m.group(4) or '', s[m.end():]))
 
         return s
 

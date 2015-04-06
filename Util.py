@@ -50,16 +50,16 @@ def rewrite_URL(url, config, ssl, remote_host):
     necessary. For absolute URLs without scheme, use the same scheme as
     used to access the proxy (using the 'ssl' flag).
     """
-    try: 
+    try:
         # Strip our own hostname for the rewrites to work.
         url = rewrite_URL_strip(url,config)
-        res = urlparse.urlsplit(url) 
+        res = urlparse.urlsplit(url)
         need_rewrite = False
 
         # Handle rewrites.
         for (f, t) in config.rewrites:
             if res[1] and res[1].split(":")[0].lower() == f.lower() \
-            and (res[0] == '' or res[0] == 'http' or res[0] == 'https'): 
+            and (res[0] == '' or res[0] == 'http' or res[0] == 'https'):
                 newres = [ item for item in res ]
                 host = t
 
@@ -69,7 +69,7 @@ def rewrite_URL(url, config, ssl, remote_host):
                         newres[0]='https'
                     else:
                         newres[0]='http'
-		
+
                 # Add port of proxy.
                 if newres[0] == 'http':
                     port = config.http_port
@@ -81,7 +81,7 @@ def rewrite_URL(url, config, ssl, remote_host):
                 return url
 
         # Handle absolute HTTP or HTTPS URL.
-        newres = [ item for item in res ] 
+        newres = [ item for item in res ]
         host = res[1].split(":")[0]
 
         # No scheme, use the scheme used to access proxy.
@@ -90,19 +90,36 @@ def rewrite_URL(url, config, ssl, remote_host):
                 newres[0]='https'
             else:
                 newres[0]='http'
-	
+
+        # Add the endpoint from URL scheme.
+        if newres[0] == 'http':
+            endpoint = config.http_endpoint
+        elif newres[0] == 'https':
+            endpoint = config.https_endpoint
+
+        # Change scheme and port if using a reverse proxy and if scheme is different
+        if using_reverseproxy(config):
+            if newres[0] != config.reverseproxy_scheme:
+                newres[0] = config.reverseproxy_scheme
+
         # Add port of proxy.
         if newres[0] == 'http':
             port = config.http_port
-            endpoint = config.http_endpoint
         elif newres[0] == 'https':
             port = config.https_port
-            endpoint = config.https_endpoint
+
         newres[1] = config.hostname + ":" + str(port)
         if host == '':
             host = remote_host
         newres[2] = endpoint + host + newres[2]
-        url = urlparse.urlunsplit(newres) 
-    except Exception, e: 
+        url = urlparse.urlunsplit(newres)
+    except Exception, e:
         pass
     return url
+
+def using_reverseproxy(config):
+        """
+        Returns True if we are using a reverse proxy (config.http_endpoint != config.https_endpoint),
+                False otherwise
+        """
+        return not (config.http_endpoint == config.https_endpoint)

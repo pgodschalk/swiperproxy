@@ -823,6 +823,7 @@ class Config:
         self.blocked_sites = self.parse_block_list(self.block_list)
         self.access_log = None
         self.error_log = None
+        self.reverseproxy_scheme = 'http'
 
         (opts, rest) = getopt.getopt(sys.argv[1:], "c:")
 
@@ -895,6 +896,7 @@ class Config:
             self.blocked_sites = self.parse_block_list(self.block_list)
             self.access_log = conf.get('global', 'access_log')
             self.error_log = conf.get('global', 'error_log')
+            self.reverseproxy_scheme = conf.get('global', 'reverseproxy_scheme')
 
         except Exception, e:
             print "Error while parsing configuration file:", e

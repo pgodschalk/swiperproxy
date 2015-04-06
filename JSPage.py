@@ -21,6 +21,7 @@
 # SOFTWARE.
 
 import re
+import Util
 
 BLKSIZE=65536
 
@@ -97,8 +98,16 @@ class JSPage(object):
             port = self.config.http_port
             endpoint = self.config.http_endpoint
 
+        if Util.using_reverseproxy(self.config):
+            if scheme != (self.config.reverseproxy_scheme + '://'):
+                scheme = (self.config.reverseproxy_scheme + '://')
+                if scheme == 'https://':
+                    port = self.config.https_port
+                else:
+                   port = self.config.http_port
+
         # Not necessary to use standard port numbers. Assume proxy is
-        # not doing HTTP on 443 or HTTPS on 80.
+        # not doing HTTPS on 443 or HTTP on 80.
         if port == 80 or port == 443:
             portstr = ''
         else:

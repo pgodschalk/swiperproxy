@@ -107,7 +107,7 @@ class JSPage(object):
                    port = self.config.http_port
 
         # Not necessary to use standard port numbers. Assume proxy is
-        # not doing HTTPS on 443 or HTTP on 80.
+        # not doing HTTP on 443 or HTTPS on 80.
         if port == 80 or port == 443:
             portstr = ''
         else:

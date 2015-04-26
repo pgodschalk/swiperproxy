@@ -896,7 +896,8 @@ class Config:
             self.blocked_sites = self.parse_block_list(self.block_list)
             self.access_log = conf.get('global', 'access_log')
             self.error_log = conf.get('global', 'error_log')
-            self.reverseproxy_scheme = conf.get('global', 'reverseproxy_scheme')
+            self.reverseproxy_scheme = conf.get('global',
+                                                'reverseproxy_scheme')
 
         except Exception, e:
             print "Error while parsing configuration file:", e

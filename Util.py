@@ -97,7 +97,8 @@ def rewrite_URL(url, config, ssl, remote_host):
         elif newres[0] == 'https':
             endpoint = config.https_endpoint
 
-        # Change scheme and port if using a reverse proxy and if scheme is different
+        # Change scheme and port if using a reverse proxy and if scheme
+        # is different
         if using_reverseproxy(config):
             if newres[0] != config.reverseproxy_scheme:
                 newres[0] = config.reverseproxy_scheme
@@ -119,7 +120,8 @@ def rewrite_URL(url, config, ssl, remote_host):
 
 def using_reverseproxy(config):
         """
-        Returns True if we are using a reverse proxy (config.http_endpoint != config.https_endpoint),
-                False otherwise
+        Returns True if we are using a reverse proxy
+        (config.http_endpoint != config.https_endpoint), False
+        otherwise.
         """
         return not (config.http_endpoint == config.https_endpoint)

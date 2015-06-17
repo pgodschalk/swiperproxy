@@ -58,7 +58,7 @@ class ProxyHandler(BaseHTTPRequestHandler):
     BLKSIZE=65536
 
     def __init__(self,request,client_address, server):
-        self.server_version = "SwiperProxy/1.0"
+        self.server_version = "SwiperProxy/1.2d"
         self.data = None
         self.good_hostname_pattern = re.compile('^([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])(\.([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]{0,61}[a-zA-Z0-9]))*|([a-f0-9:]+)$')
         self.responded_to_client = False # Have we already sent response?
@@ -304,7 +304,7 @@ class ProxyHandler(BaseHTTPRequestHandler):
             pass
 
         return cookie
- 
+
     def handle_rewritable(self, resp, rewriter_class):
         """
         Handle HTML, JS and CSS pages.
@@ -328,7 +328,7 @@ class ProxyHandler(BaseHTTPRequestHandler):
         headerstr='HTTP/1.0 %d %s\r\n' % (resp.status, resp.reason)
         headerstr+='Server: %s\r\n' % (self.server_version)
         headerstr+='Date: %s\r\n' % (self.date_time_string())
-
+        headerstr+='Content-base: %s\r\n' % (self.remote_host)
         for (k, v) in resp.getheaders():
             if k in ["server", "date", "content-length", "transfer-encoding",
                      "content-encoding", "connection"]:
@@ -387,6 +387,7 @@ class ProxyHandler(BaseHTTPRequestHandler):
         headerstr='HTTP/1.0 %d %s\r\n' % (resp.status, resp.reason)
         headerstr+='Server: %s\r\n' % (self.server_version)
         headerstr+='Date: %s\r\n' % (self.date_time_string())
+        headerstr+='Content-base: %s\r\n' % (self.remote_host)
         for (k, v) in resp.getheaders():
             if k in ["content-length", "server", "date", "content-encoding",
                      "transfer-encoding"]:

@@ -3,6 +3,9 @@
 	E-mail: argure@donttrustrobots.nl
 	Location: Goes, The Netherlands
 
+    Developer: Christiaan de Die le Clercq
+    E-mail: contact@techwolf12.nl
+    Location: Heerhugowaard, The Netherlands
 /* THANKS */
 
 /* SITE */

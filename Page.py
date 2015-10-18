@@ -1,4 +1,4 @@
-# Copyright (c) 2014 SwiperProxy Team
+# Copyright (c) 2014-2015 SwiperProxy Team
 #
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
@@ -34,7 +34,7 @@ from JSPage import JSPage
 from CSSPage import CSSPage
 
 class Page(HtmlParser):
-    BLKSIZE=65536
+    BLKSIZE = 65536
     tags_and_attribs_list = [(['base', 'a', 'link', 'area'], ['href']),
                              (['audio', 'embed', 'frame', 'script', 'img',
                                'iframe', 'input', 'source'],

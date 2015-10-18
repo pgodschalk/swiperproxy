@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 ### BEGIN INIT INFO
 # Provides:          swiperproxy
 # Required-Start:    $named $network $remote_fs $syslog
@@ -22,11 +22,11 @@ DAEMON_OPTS="-c /etc/swiperproxy/proxy.conf"
 DAEMON_USER=swiperproxy
 PIDFILE=/var/run/swiperproxy.pid
 
-# Exit if the package is not installed
-[ -x "$DAEMON" ] || exit 0
-
 # Read default configuration variable file if it is present
 [ -r /etc/default/$NAME ] && . /etc/default/$NAME
+
+# Exit if the package is not installed
+[ -x "$DAEMON" ] || exit 0
 
 # Define LSB log_* functions.
 # Depend on lsb-base (>= 3.2-14) to ensure that this file is present

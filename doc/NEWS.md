@@ -12,6 +12,7 @@ News
    installed.
  * htdocs now use an external css file to simplify custom styling.
  * htdocs now include a variety of meta information.
+ * Libraries loaded in the landing page no longer return 403 errors.
  * A variety of inherited code has been refactored.
  * The PyDev project file is now distributed with the source code.
  * The Bootstrap library has been updated to version 3.3.5.

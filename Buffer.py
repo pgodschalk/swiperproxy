@@ -1,4 +1,4 @@
-# Copyright (c) 2014 SwiperProxy Team
+# Copyright (c) 2014-2015 SwiperProxy Team
 #
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
@@ -26,7 +26,7 @@ except ImportError:
     from StringIO import StringIO
 
 class Buffer(object):
-    MAX_BUFFER=1024*32
+    MAX_BUFFER = 1024 * 32
     def __init__(self, max_size=MAX_BUFFER):
         self.buffers = []
         self.max_size = max_size

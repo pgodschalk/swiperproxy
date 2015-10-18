@@ -3,13 +3,14 @@
 	E-mail: argure@donttrustrobots.nl
 	Location: Goes, The Netherlands
 
-    Developer: Christiaan de Die le Clercq
-    E-mail: contact@techwolf12.nl
-    Location: Heerhugowaard, The Netherlands
+	Developer: Christiaan de Die le Clercq
+	E-mail: contact@techwolf12.nl
+	Location: Heerhugowaard, The Netherlands
+
 /* THANKS */
 
 /* SITE */
 	Last update: 2014-12-25
 	Standards: HTML5, CSS3
 	Components: Bootstrap, JQuery
-	Software: Aptana Studio 3
+	Software: PyDev, Aptana Studio 3

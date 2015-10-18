@@ -1,4 +1,4 @@
-# Copyright (c) 2014 SwiperProxy Team
+# Copyright (c) 2014-2015 SwiperProxy Team
 #
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
@@ -23,7 +23,7 @@
 import re
 import Util
 
-BLKSIZE=65536
+BLKSIZE = 65536
 
 # A string without unescaped quote characters, followed by a quote.
 re_scan = re.compile(r"(([^\\\"']|\\.)*)['\"]")
@@ -58,8 +58,6 @@ class JSPage(object):
         self.input_buffer = self.input_buffer[self.input_pos:] + s
         self.input_pos = 0
 
-    # Put a string into the output buffer. If the total length of the
-    # output buffer is at least BLKSIZE, write it to the output stream.
     def output(self, s):
         """
         Put a string into the output buffer. If the total length of the

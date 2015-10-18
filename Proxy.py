@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# Copyright (c) 2014 SwiperProxy Team
+# Copyright (c) 2014-2015 SwiperProxy Team
 #
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
@@ -55,10 +55,10 @@ class ProxyHandler(BaseHTTPRequestHandler):
     """
     Request handler for HTTP requests.
     """
-    BLKSIZE=65536
+    BLKSIZE = 65536
 
     def __init__(self,request,client_address, server):
-        self.server_version = "SwiperProxy/1.2d"
+        self.server_version = "SwiperProxy/1.1"
         self.data = None
         self.good_hostname_pattern = re.compile('^([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])(\.([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]{0,61}[a-zA-Z0-9]))*|([a-f0-9:]+)$')
         self.responded_to_client = False # Have we already sent response?
@@ -545,6 +545,7 @@ class ProxyHandler(BaseHTTPRequestHandler):
         and self.path != '/img/opensource.png' \
         and self.path != '/img/freesoftware.png' \
         and self.path != '/apple-touch-icon-precomposed.png' \
+        and self.path != '/css/style.css' \
         and self.path != '/lib/bootstrap/css/bootstrap.min.css' \
         and self.path != '/lib/bootstrap/css/bootstrap-theme.min.css' \
         and self.path != '/lib/bootstrap/js/bootstrap.min.js' \
@@ -552,7 +553,7 @@ class ProxyHandler(BaseHTTPRequestHandler):
         and self.path != '/lib/bootstrap/fonts/glyphicons-halflings-regular.ttf' \
         and self.path != '/lib/bootstrap/fonts/glyphicons-halflings-regular.svg' \
         and self.path != '/lib/bootstrap/fonts/glyphicons-halflings-regular.woff' \
-        and self.path != '/lib/jquery/jquery-2.1.3.min.js':
+        and self.path != '/lib/jquery/jquery-2.1.4.min.js':
             return False
 
         # This is for us, so handle it.

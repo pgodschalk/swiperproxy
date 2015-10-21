@@ -112,7 +112,10 @@ def rewrite_URL(url, config, ssl, remote_host):
         newres[1] = config.hostname + ":" + str(port)
         if host == '':
             host = remote_host
-        newres[2] = endpoint + host + newres[2]
+        if str(newres[2]).startswith("/"):
+            newres[2] = endpoint + host + newres[2]
+        else:
+            newres[2] = endpoint + host + "/" + newres[2]
         url = urlparse.urlunsplit(newres)
     except Exception, e:
         pass

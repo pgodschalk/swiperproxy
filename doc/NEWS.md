@@ -7,7 +7,9 @@ News
  * HTTP/HTTPS endpoints have been added, to be used with a reverse
    proxy.
  * The input field has various new parameters including autofocus and
-   an URL datatype.
+   a URL datatype.
+ * The htdocs `doclick()` function now includes a regular expression to
+   strip leading `http(s)://`.
  * Sysvinit now correctly loads defaults before checking if package is
    installed.
  * htdocs now use an external css file to simplify custom styling.

@@ -8,3 +8,4 @@ clean:
 	rm -rf build
 	rm -f py-streamhtmlparser.c
 	rm -f streamhtmlparser.so
+

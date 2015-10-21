@@ -1,6 +1,0 @@
-[submodule "include/streamhtmlparser"]
-	path = include/streamhtmlparser
-	url = https://github.com/google/streamhtmlparser.git
-[submodule "include/py-streamhtmlparser"]
-	path = include/py-streamhtmlparser
-	url = https://github.com/swiperproxy/py-streamhtmlparser.git

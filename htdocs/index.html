@@ -43,7 +43,9 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		<!-- CONFIGURE: You should enter your domain name below. -->
 		<script type="text/javascript">
 			function doclick() {
-				document.location="http://proxy.example.org/"+document.getElementById('url').value;
+				var location = document.getElementById('url').value;
+				var locationregex = location.replace(/^http(s|):\/\//i, "");
+				document.location="http://proxy.donttrustrobots.nl/"+locationregex;
 			}
 		</script>
 	</head>

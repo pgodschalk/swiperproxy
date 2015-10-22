@@ -12,7 +12,15 @@ News
    strip leading `http(s)://`.
  * Sysvinit now correctly loads defaults before checking if package is
    installed.
- * htdocs now use an external css file to simplify custom styling.
+ * Relative URLs are now handled properly.
+ * py-streamhtmlparser has been split off into its own project at
+   <https://github.com/swiperproxy/py-streamhtmlparser>. Both the
+   streamhtmlparser library and the py-streamhtmlparser wrapper are
+   still included but will be properly split from distribution in the 2.0
+   release. 
+ * A generic favicon has been added.
+ * htdocs now use an external css file to simplify custom styling, and
+   supports minified css.
  * htdocs now include a variety of meta information.
  * Libraries loaded in the landing page no longer return 403 errors.
  * A variety of inherited code has been refactored.

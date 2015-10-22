@@ -546,6 +546,7 @@ class ProxyHandler(BaseHTTPRequestHandler):
         and self.path != '/img/freesoftware.png' \
         and self.path != '/apple-touch-icon-precomposed.png' \
         and self.path != '/css/style.css' \
+        and self.path != '/css/style.min.css' \
         and self.path != '/lib/bootstrap/css/bootstrap.min.css' \
         and self.path != '/lib/bootstrap/css/bootstrap-theme.min.css' \
         and self.path != '/lib/bootstrap/js/bootstrap.min.js' \

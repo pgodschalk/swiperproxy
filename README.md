@@ -4,7 +4,7 @@ swiperproxy
 [![Build Status](https://travis-ci.org/swiperproxy/swiperproxy.svg?branch=develop)](https://travis-ci.org/swiperproxy/swiperproxy)
 
 SwiperProxy is a very easy to use HTTP and HTTPS web proxy. View the
-live demo at <http://proxy.donttrustrobots.nl>.
+live demo at <https://proxy.donttrustrobots.nl>.
 
 ![SwiperProxy Screenshot](doc/screenshot.png)
 

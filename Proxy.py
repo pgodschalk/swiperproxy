@@ -745,7 +745,7 @@ class Proxy:
     """
     def __init__(self, config):
         self.config = config
-        self.http_server = ThreadedHTTPServer(('',
+        self.http_server = ThreadedHTTPServer((self.config.listen_ip_address,
                                                self.config.http_listen_port),
                                               ProxyHandler)
         self.http_server.config = config
@@ -753,7 +753,7 @@ class Proxy:
         self.http_server.open_logs()
 
         if self.config.https_certificate:
-            self.https_server = ThreadedHTTPServer(('',
+            self.https_server = ThreadedHTTPServer((self.config.listen_ip_address,
                                                     self.config.https_listen_port),
                                                    ProxySSLHandler)
             self.https_server.socket = ssl.wrap_socket(self.https_server.socket,
@@ -803,6 +803,7 @@ class Config:
         self.http_endpoint = '/'
         self.https_endpoint = '/'
         self.rewrites=[]
+        self.listen_ip_address = ''
         self.http_listen_port = 0
         self.https_listen_port = 0
         self.https_certificate = None
@@ -850,6 +851,11 @@ class Config:
         """
         if not self.hostname:
             return False
+        if self.listen_ip_address and self.listen_ip_address != 'localhost':
+            try:
+                socket.inet_aton(self.listen_ip_address)
+            except socket.error:
+                return False
         if self.http_listen_port < 1 or self.http_listen_port > 65535 \
         or self.https_listen_port < 1 or self.https_listen_port > 65535:
             return False
@@ -867,6 +873,7 @@ class Config:
             conf.read(fn)
             self.conf = conf
             self.hostname = conf.get('global', 'hostname').lower()
+            self.listen_ip_address = conf.get('global', 'listen_ip_address')
             self.http_listen_port = conf.getint('global', 'http_listen_port')
             self.https_listen_port = conf.getint('global', 'https_listen_port')
             self.http_port = conf.getint('global', 'http_port')

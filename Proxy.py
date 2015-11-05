@@ -149,6 +149,7 @@ class ProxyHandler(BaseHTTPRequestHandler):
             self.client_address = (client, self.client_address[1])
         if self.handle_own() or self.handle_robot_block():
             return
+        self.path = Util.remove_PATH_endpoint(self.path, self.server.config)
         self.remote_host = self.path.split('/')[1]
         self.path = '/' + '/'.join(self.path.split('/')[2:])
         self.server.reqs[threading.currentThread().name] = (self.remote_host,

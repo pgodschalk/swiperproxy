@@ -25,6 +25,17 @@
 import urlparse
 import traceback
 
+def remove_PATH_endpoint(path, config):
+    if path.startswith(config.https_endpoint):
+        lens = len(config.https_endpoint)
+        if lens:
+            path = path[lens-1:]
+    if path.startswith(config.http_endpoint):
+        lens = len(config.http_endpoint)
+        if lens:
+            path = path[lens-1:]
+    return path
+
 def rewrite_URL_strip(url, config):
     """
     Strip the proxy hostname part of the passed URL.
@@ -38,6 +49,8 @@ def rewrite_URL_strip(url, config):
            if host.endswith(config.hostname):
                host = host.split(config.hostname)[0]
            newres[1] = host
+
+           newres[2] = remove_PATH_endpoint(res[2], config)
 
            url = urlparse.urlunsplit(newres)
     except Exception, e:

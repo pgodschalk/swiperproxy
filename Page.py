@@ -1,4 +1,4 @@
-# Copyright (c) 2014-2015 SwiperProxy Team
+# Copyright (c) 2014-2016 SwiperProxy Team
 #
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
@@ -286,7 +286,7 @@ class Page(HtmlParser):
     def write_output(self, final):
         """
         Write output buffer in BLKSIZE blocks to the client. If final
-        is set, write everything, including the last block even if it 
+        is set, write everything, including the last block even if it
         is smaller than BLKSIZE. Remove written blocks from the output
         buffer.
         """

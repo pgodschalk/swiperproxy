@@ -1,5 +1,5 @@
 <!--
-Copyright (c) 2014-2015 SwiperProxy Team
+Copyright (c) 2014-2016 SwiperProxy Team
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the
@@ -23,85 +23,88 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>SwiperProxy</title>
-		<meta content="self" http-equiv="Content-Security-Policy">
-		<meta content="style" http-equiv="default-style">
-		<meta content="SwiperProxy" name="application-name">
-		<meta content="The SwiperProxy Team" name="author">
-		<meta content="The SwiperProxy Team" name="creator">
-		<meta content="A lightning-fast, easy to use, open source web proxy." name="description">
-		<meta content="index, follow" name="googlebot">
-		<meta content="The SwiperProxy Team" name="publisher">
-		<meta content="index, follow" name="robots">
-		<meta content="index, follow" name="slurp">
-		<link href="/humans.txt" rel="author" type="text/plain">
-		<link href="/favicon.ico" rel="icon" sizes="152x152" type="image/icon">
-		<link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-		<link href="/lib/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
-		<link href="/css/style.min.css" id="style" rel="stylesheet" type="text/css">
-		<!-- CONFIGURE: You should enter your domain name below. -->
-		<script type="text/javascript">
-			function doclick() {
-				var location = document.getElementById('url').value;
-				var locationregex = location.replace(/^http(s|):\/\//i, "");
-				document.location="http://proxy.example.org/"+locationregex;
-			}
-		</script>
-	</head>
-	<body>
-		<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
-			<div class="container">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="/" hreflang="en" rel="index" title="SwiperProxy" type="text/html">SwiperProxy</a>
-					<button class="navbar-toggle collapsed" type="button" data-target="#navbar-main" data-toggle="collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-				</div>
-				<div class="collapse navbar-collapse" id="navbar-main">
-					<ul class="nav navbar-nav">
-						<li><a href="https://swiperproxy.github.io" hreflang="en" rel="author external" target="_blank" title="About" type="text/html"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
-						<li><a href="https://github.com/SwiperProxy/swiperproxy/issues" hreflang="en" rel="external" target="_blank" title="Report a bug" type="text/html"><span class="glyphicon glyphicon-bullhorn"></span>&nbsp;Report a bug</a></li>
-						<li><a href="https://swiperproxy.github.io/donate.html" hreflang="en" rel="author external" target="_blank" title="Donate" type="text/html"><span class="glyphicon glyphicon-heart"></span>&nbsp;Donate</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<div class="jumbotron">
-			<div class="container">
-				<h1>SWIPERPROXY</h1>
-				<p>Lightning-fast, and the easiest web proxy you will ever use.
-			</div>
-		</div>
-		<main class="container">
-			<div class="alert alert-warning" role="alert">
-				<p><span class="glyphicon glyphicon-warning-sign"></span> Please keep in mind you are using a proxy. You should never enter valuable information like passphrases or credit card details over a proxy, even when using <abbr title="HTTP Secure">HTTPS</abbr>.</p>
-			</div>
-			<h2>Proxify a website!</h2>
-			<form action="javascript:doclick()" id="proxy" role="form">
-				<label class="control-label" for="url" form="proxy">http(s)://</label>
-				<input autocomplete="off" autofocus form="proxy" id="url" inputmode="url" name="url" placeholder="www.example.org" required spellcheck="false" type="text">
-				<button class="btn btn-primary btn-sm" data-loading-text="Loading..." form="proxy" onclick="doclick()" style="display: block;" type="button">Browse</button>
-			</form>
-			<br>
-		</main>
-		<footer class="container">
-			<hr>
-			<p>
-				<img alt="Free Software" src="img/freesoftware.png"> <img alt="Open Source" src="img/opensource.png"> <a href="https://github.com/SwiperProxy/swiperproxy/blob/develop/doc/COPYING.md" hreflang="en" rel="external license" target="_blank" title="MIT License" type="text/html"><img alt="MIT License" src="img/mitlicense.png"></a> <small>SwiperProxy is free and open source software available under the <a href="https://github.com/SwiperProxy/swiperproxy/blob/develop/doc/COPYING.md" hreflang="en" rel="external license" target="_blank" title="MIT License" type="text/html"><abbr title="Massachusetts Institute of Technology">MIT</abbr> license</a>.</small><br>
-				<!-- CONFIGURE: You should enter the city, country name and country code below to identify where your proxy is running from. -->
-				<small>This instance is running from <strong>City, <abbr title="Full Country Name">AA</abbr></strong>.</small><br>
-			</p>
-			<p>
-				<!-- CONFIGURE: You should enter your e-mail address below for people to contact you. -->
-				<span class="glyphicon glyphicon-envelope"></span> <small>Contact the maintainer: <a href="mailto:you@example.org">you@example.org</a></small>
-			</p>
-		</footer>
-		<script src="/lib/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
-		<script src="/lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-	</body>
+  <head>
+    <meta charset="utf-8">
+    <meta content="SwiperProxy" name="application-name">
+    <meta content="swiperproxy" http-equiv="default-style">
+    <meta content="self" http-equiv="Content-Security-Policy">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="author" content="The SwiperProxy Team">
+    <meta name="description" content="A lightning-fast, easy to use, open source web proxy.">
+    <meta name="keywords" content="swiperproxy">
+    <meta name="creator" content="The SwiperProxy Team">
+    <meta name="googlebot" content="index, follow">
+    <meta name="publisher" content="The SwiperProxy Team">
+    <meta name="robots" content="index, follow">
+    <meta name="slurp" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwiperProxy</title>
+    <link type="text/plain" href="/humans.txt" rel="author">
+    <link type="image/icon" href="/favicon.ico" rel="icon" sizes="152x152">
+    <link type="text/css" href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link id="resume" type="text/css" href="/css/resume.min.css" rel="stylesheet">
+    <!-- CONFIGURE: You should enter your domain name below. -->
+    <script type="text/javascript">
+      function doclick() {
+        var location = document.getElementById('url').value;
+        var locationregex = location.replace(/^http(s|):\/\//i, "");
+        document.location="http://proxy.example.org/"+locationregex;
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/" hreflang="en" rel="index" title="SwiperProxy" type="text/html">SwiperProxy</a>
+          <button class="navbar-toggle collapsed" type="button" data-target="#navbar-main" data-toggle="collapse" aria-controls="navbar-main" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar" aria-hidden="true"></span>
+            <span class="icon-bar" aria-hidden="true">></span>
+            <span class="icon-bar" aria-hidden="true">></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li><a type="text/html" href="https://swiperproxy.github.io" hreflang="en" rel="author external" target="_blank"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> About</a></li>
+            <li><a type="text/html" href="https://github.com/SwiperProxy/swiperproxy/issues" hreflang="en" rel="external" target="_blank" type="text/html"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> Report a bug</a></li>
+            <li><a type="text/html" href="https://swiperproxy.github.io/donate.html" hreflang="en" rel="author external" target="_blank" type="text/html"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Donate</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>SWIPERPROXY</h1>
+        <p>Lightning-fast, and the easiest web proxy you will ever use.
+      </div>
+    </div>
+    <main class="container">
+      <div class="alert alert-warning" role="alert">
+        <p><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> Please keep in mind you are using a proxy. You should never enter valuable information like passphrases or credit card details over a proxy, even when using <abbr title="HTTP Secure">HTTPS</abbr>.</p>
+      </div>
+      <h2>Proxify a website!</h2>
+      <form id="proxy" role="form" action="javascript:doclick()">
+        <label class="control-label" for="url" form="proxy">http(s)://</label>
+        <input id="url" type="text" name="url" autocomplete="off" autofocus form="proxy" inputmode="url" placeholder="www.example.org" required spellcheck="false">
+        <button class="btn btn-primary btn-sm" data-loading-text="Loading..." type="button" form="proxy" onclick="doclick()" style="display: block;">Browse</button>
+      </form>
+      <br>
+    </main>
+    <footer class="container">
+      <hr>
+      <p>
+        <img src="img/freesoftware.png" alt="Free Software"> <img src="img/opensource.png" alt="Open Source"> <a type="text/html" href="https://github.com/SwiperProxy/swiperproxy/blob/develop/doc/COPYING.md" hreflang="en" rel="external license" target="_blank"><img alt="MIT License" src="img/mitlicense.png"></a> <small>SwiperProxy is free and open source software available under the <a type="text/html" href="https://github.com/SwiperProxy/swiperproxy/blob/develop/doc/COPYING.md" hreflang="en" rel="external license" target="_blank"><abbr title="Massachusetts Institute of Technology">MIT</abbr> license</a>.</small><br>
+        <!-- CONFIGURE: You should enter the city, country name and country code below to identify where your proxy is running from. -->
+        <small>This instance is running from <strong>City, <abbr title="Full Country Name">AA</abbr></strong>.</small><br>
+      </p>
+      <p>
+        <!-- CONFIGURE: You should enter your e-mail address below for people to contact you. -->
+        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <small>Contact the maintainer: <a href="mailto:you@example.org">you@example.org</a></small>
+      </p>
+    </footer>
+    <script src="/lib/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+  </body>
 </html>

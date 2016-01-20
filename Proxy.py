@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# Copyright (c) 2014-2015 SwiperProxy Team
+# Copyright (c) 2014-2016 SwiperProxy Team
 #
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
@@ -718,7 +718,7 @@ class ThreadedHTTPServer(ThreadPoolMixIn, HTTPServer):
                 self.access_log = file(self.config.access_log, "a")
             except Exception, e:
                 print >> sys.stderr, "Error opening access log %s: %s" % (self.config.access_log,
-                                                                	  traceback.format_exc())
+                                                                          traceback.format_exc())
                 self.access_log = sys.stdout
         else:
             self.access_log = sys.stdout
@@ -728,7 +728,7 @@ class ThreadedHTTPServer(ThreadPoolMixIn, HTTPServer):
                 self.error_log = file(self.config.error_log, "a")
             except Exception, e:
                 print >> sys.stderr, "Error opening error log %s: %s" % (self.config.access_log,
-                                                                	 traceback.format_exc())
+                                                                         traceback.format_exc())
                 self.error_log = sys.stderr
         else:
             self.error_log = sys.stderr
@@ -793,7 +793,6 @@ class Proxy:
         """
         Handle connections indefinitely.
         """
-        #server.serve_forever()
         server.serve_forever(numThreads = self.config.threadpool_size)
 
 class Config:

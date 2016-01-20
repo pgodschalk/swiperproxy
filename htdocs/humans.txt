@@ -10,7 +10,7 @@
 /* THANKS */
 
 /* SITE */
-	Last update: 2014-12-25
+	Last update: 2015-01-20
 	Standards: HTML5, CSS3
 	Components: Bootstrap, JQuery
-	Software: PyDev, Aptana Studio 3
+	Software: Atom

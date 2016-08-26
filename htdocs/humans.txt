@@ -1,7 +1,7 @@
 /* TEAM */
 	Developer: Patrick Godschalk
 	E-mail: argure@donttrustrobots.nl
-	Location: Goes, The Netherlands
+	Location: Leiden, The Netherlands
 
 	Developer: Christiaan de Die le Clercq
 	E-mail: contact@techwolf12.nl
@@ -10,7 +10,7 @@
 /* THANKS */
 
 /* SITE */
-	Last update: 2015-01-20
+	Last update: 2016-08-26
 	Standards: HTML5, CSS3
 	Components: Bootstrap, JQuery
 	Software: Atom

@@ -1,0 +1,15 @@
+[Unit]
+Description = SwiperProxy
+
+After = systemd-user-sessions.service network.target
+
+[Service]
+User = swiperproxy
+Group = swiperproxy
+Type = simple
+ExecStart = /opt/swiperproxy/swiperproxy/Proxy.py -c /opt/swiperproxy/swiperproxy/proxy.conf
+Restart = on-abort
+RestartSec = 5
+
+[Install]
+WantedBy = multi-user.target

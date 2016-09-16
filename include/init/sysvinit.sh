@@ -12,7 +12,7 @@
 #                    current status.
 ### END INIT INFO
 
-# Author: Patrick Godschalk <argure@donttrustrobots.nl>
+# Author: Patrick Godschalk <patrick@donttrustrobots.nl>
 
 DIR=/opt/SwiperProxy/swiperproxy
 DESC="HTTP/HTTPS web proxy"

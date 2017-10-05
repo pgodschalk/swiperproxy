@@ -8,7 +8,7 @@ Run `build.sh`
 
 You need to specify some environment settings in order for the container to work properly, namely:
 
-* SP_HOST - `hostname` in `proxy.conf`
+* SP_HOSTNAME - `hostname` in `proxy.conf`
 * SP_HTTP_PORT - `http_port` in `proxy.conf`
 * SP_HTTPS_PORT= `https_port` in `proxy.conf`
 

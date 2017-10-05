@@ -1,0 +1,5 @@
+.*
+docker
+!docker/entrypoint.sh
+doc
+README.md

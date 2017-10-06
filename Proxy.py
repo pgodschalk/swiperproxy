@@ -194,12 +194,15 @@ class ProxyHandler(BaseHTTPRequestHandler):
             try:
                 # Create connection object, connect to upstream server
                 # and set the underlying socket's timeout
+                remote_host = self.remote_host if not self.server.config.https_proxy else self.server.config.https_proxy
                 if self.is_ssl():
-                    c = httplib.HTTPSConnection(self.remote_host,
+                    c = httplib.HTTPSConnection(remote_host,
                                                 timeout=self.server.config.upstream_connect_timeout)
                 else:
-                    c = httplib.HTTPConnection(self.remote_host,
+                    c = httplib.HTTPConnection(remote_host,
                                                timeout=self.server.config.upstream_connect_timeout)
+                if self.server.config.https_proxy:
+                    c.set_tunnel(self.remote_host)
                 c.connect()
                 c.sock.settimeout(self.server.config.upstream_timeout)
             except Exception, e:
@@ -820,6 +823,7 @@ class Config:
         self.gzip_client_response = True
         self.gzip_server_response = True
         self.use_forwarded_for = False
+        self.https_proxy = None
         self.threadpool_size = 64
         self.block_list = None
         self.block_target = None
@@ -893,6 +897,7 @@ class Config:
                                                         'gzip_server_response')
             self.use_forwarded_for = conf.getboolean('global',
                                                      'use_forwarded_for')
+            self.https_proxy = conf.get('global', 'https_proxy')
             self.threadpool_size = conf.getint('global', 'threadpool_size')
             self.block_list = conf.get('global', 'block_list')
             self.block_target = conf.get('global', 'block_target')

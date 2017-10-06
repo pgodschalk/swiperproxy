@@ -538,23 +538,17 @@ class ProxyHandler(BaseHTTPRequestHandler):
         for unknown hostnames or non-existing host-header. Returns true
         if request was handled here.
         """
-        if self.path != '/' and self.path != '/index.html' \
-        and self.path != '/img/logo.png' and self.path != '/favicon.ico' \
-        and self.path != '/crossdomain.xml' and self.path != '/robots.txt' \
-        and self.path != '/humans.txt' and self.path !='/img/mitlicense.png' \
-        and self.path != '/img/opensource.png' \
-        and self.path != '/img/freesoftware.png' \
-        and self.path != '/apple-touch-icon-precomposed.png' \
-        and self.path != '/css/style.css' \
-        and self.path != '/css/style.min.css' \
-        and self.path != '/lib/bootstrap/css/bootstrap.min.css' \
-        and self.path != '/lib/bootstrap/css/bootstrap-theme.min.css' \
-        and self.path != '/lib/bootstrap/js/bootstrap.min.js' \
-        and self.path != '/lib/bootstrap/fonts/glyphicons-halflings-regular.eot' \
-        and self.path != '/lib/bootstrap/fonts/glyphicons-halflings-regular.ttf' \
-        and self.path != '/lib/bootstrap/fonts/glyphicons-halflings-regular.svg' \
-        and self.path != '/lib/bootstrap/fonts/glyphicons-halflings-regular.woff' \
-        and self.path != '/lib/jquery/jquery-2.1.4.min.js':
+
+        # own_files could (should?) be cached but this allows
+        # editing htdocs on the fly!
+        own_files = ['/']
+        for x in os.walk(self.server.config.files_location):
+            l = x[0][len(self.server.config.files_location):]
+            if not l:
+                l = '/'
+            own_files.extend(os.path.join(l, y) for y in x[2])
+
+        if self.path not in own_files:
             return False
 
         # This is for us, so handle it.

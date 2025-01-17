@@ -1,0 +1,10 @@
+/*
+ * Do any custom styling in this file. For performance reasons, it is
+ * recommended you minify the css using a minifier like yui-compressor
+ * and write to style.min.css, overwriting the symlink.
+ */
+
+body {
+  padding-bottom: 20px;
+  padding-top: 50px;
+}

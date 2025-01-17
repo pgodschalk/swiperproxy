@@ -1,0 +1,3 @@
+[submodule "src/include/streamhtmlparser/py-streamhtmlparser"]
+	path = src/include/streamhtmlparser/py-streamhtmlparser
+	url = https://github.com/pgodschalk/py-streamhtmlparser.git

@@ -1,6 +1,6 @@
 /* TEAM */
 	Developer: Patrick Godschalk
-	E-mail: patrick@donttrustrobots.nl
+	E-mail: patrick@kernelpanics.nl
 	Location: Leiden, The Netherlands
 
 	Developer: Christiaan de Die le Clercq
